@@ -1,0 +1,57 @@
+{
+  "country": "United States",
+  "countryCode": "US",
+  "states": [
+    {
+      "code": "CA",
+      "name": "California",
+      "cities": [
+        { "name": "Los Angeles", "postcodes": ["90001", "90002", "90003"] },
+        { "name": "San Francisco", "postcodes": ["94102", "94103", "94107"] },
+        { "name": "San Diego", "postcodes": ["92101", "92103", "92109"] }
+      ]
+    },
+    {
+      "code": "NY",
+      "name": "New York",
+      "cities": [
+        { "name": "New York", "postcodes": ["10001", "10002", "10003"] },
+        { "name": "Buffalo", "postcodes": ["14201", "14202", "14203"] }
+      ]
+    },
+    {
+      "code": "TX",
+      "name": "Texas",
+      "cities": [
+        { "name": "Houston", "postcodes": ["77001", "77002", "77003"] },
+        { "name": "Dallas", "postcodes": ["75201", "75202", "75203"] }
+      ]
+    },
+    {
+      "code": "FL",
+      "name": "Florida",
+      "cities": [
+        { "name": "Miami", "postcodes": ["33101", "33125", "33126"] },
+        { "name": "Orlando", "postcodes": ["32801", "32803", "32808"] }
+      ]
+    },
+    {
+      "code": "IL",
+      "name": "Illinois",
+      "cities": [
+        { "name": "Chicago", "postcodes": ["60601", "60602", "60603"] },
+        { "name": "Aurora", "postcodes": ["60502", "60503", "60504"] }
+      ]
+    }
+  ],
+  "streetNames": [
+    "Main St",
+    "Oak St",
+    "Maple Ave",
+    "Pine St",
+    "Cedar St",
+    "Elm St",
+    "Washington St",
+    "Lakeview Dr"
+  ]
+}

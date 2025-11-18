@@ -1,8 +1,9 @@
 import express from 'express';
 import { faker } from '@faker-js/faker';
+import { getRandomUSAddress } from './src/usAddress.js';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8082;
 
 // 简单的 BIN 元数据生成器（不依赖第三方 API）
 function generateBinInfo(bin) {
@@ -16,8 +17,9 @@ function generateBinInfo(bin) {
       name: faker.company.name()
     },
     country: {
-      name: faker.location.country(),
-      alpha2: faker.location.countryCode('alpha-2')
+      // 为了与地址生成保持一致，这里固定为美国
+      name: 'United States',
+      alpha2: 'US'
     }
   };
 }
@@ -34,27 +36,25 @@ app.get('/bin/:bin', (req, res) => {
 });
 
 // 随机用户: /random-user?nat=us
+// 统一生成美国地址，结构与扩展端期望的 { name, address, contact } 匹配
 app.get('/random-user', (req, res) => {
   const nat = (req.query.nat || 'us').toString().toLowerCase();
 
   const firstName = faker.person.firstName();
   const lastName = faker.person.lastName();
-  const street = faker.location.streetAddress();
-  const city = faker.location.city();
-  const state = faker.location.state();
-  const country = faker.location.country();
-  const postcode = faker.location.zipCode();
   const email = faker.internet.email({ firstName, lastName });
   const phone = faker.phone.number();
+
+  const addr = getRandomUSAddress();
 
   return res.json({
     name: `${firstName} ${lastName}`,
     address: {
-      street,
-      city,
-      state,
-      country,
-      postcode
+      street: addr.street,
+      city: addr.city,
+      state: addr.stateCode,
+      country: addr.country,
+      postcode: addr.postcode
     },
     contact: {
       email,
