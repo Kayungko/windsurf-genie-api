@@ -1,0 +1,14 @@
+{
+  "name": "windsurf-genie-api",
+  "version": "1.0.0",
+  "description": "Self-hosted fallback API for Windsurf Genie (BIN lookup + random user)",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "express": "^4.19.2"
+  }
+}
