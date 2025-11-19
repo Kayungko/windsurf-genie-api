@@ -1,0 +1,33 @@
+{
+  "US": {
+    "CA": {
+      "Los Angeles": [],
+      "San Francisco": [],
+      "San Diego": [],
+      "San Jose": []
+    },
+    "NY": {
+      "New York": [],
+      "Buffalo": []
+    },
+    "TX": {
+      "Houston": [],
+      "Dallas": [],
+      "Austin": []
+    },
+    "FL": {
+      "Miami": [],
+      "Orlando": [],
+      "Tampa": []
+    },
+    "IL": {
+      "Chicago": []
+    },
+    "WA": {
+      "Seattle": []
+    },
+    "MA": {
+      "Boston": []
+    }
+  }
+}
