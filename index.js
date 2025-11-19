@@ -68,6 +68,8 @@ app.get('/real-address', async (req, res) => {
 
     // 随机选择一条地址
     let addresses = [];
+    let selectedState = state;
+    let selectedCity = city;
     
     if (city && state) {
       // 指定了城市，从该城市随机选
@@ -76,13 +78,16 @@ app.get('/real-address', async (req, res) => {
       // 只指定了州，从该州所有城市随机选
       const cities = Object.keys(database[country][state]);
       const randomCity = cities[Math.floor(Math.random() * cities.length)];
+      selectedCity = randomCity;  // 保存随机选的城市
       addresses = database[country][state][randomCity];
     } else {
       // 只指定了国家，从所有州随机选
       const states = Object.keys(database[country]);
       const randomState = states[Math.floor(Math.random() * states.length)];
+      selectedState = randomState;  // 保存随机选的州
       const cities = Object.keys(database[country][randomState]);
       const randomCity = cities[Math.floor(Math.random() * cities.length)];
+      selectedCity = randomCity;  // 保存随机选的城市
       addresses = database[country][randomState][randomCity];
     }
 
@@ -96,8 +101,8 @@ app.get('/real-address', async (req, res) => {
     return res.json({
       street: randomAddress.street,
       zip: randomAddress.zip,
-      city: city || 'Unknown',
-      state: state || 'Unknown',
+      city: selectedCity,
+      state: selectedState,
       country,
       source: 'database'
     });
